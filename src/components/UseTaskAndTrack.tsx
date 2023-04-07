@@ -6,7 +6,7 @@ export default component$(() => {
 	const renderSignal = useSignal('');
 	const stateSignal = useSignal(true);
 
-	useTask$(({ track }) => {
+	useTask$(({ track, cleanup }) => {
 		console.log('-------> useTask$ <-------');
 		if (isServer) {
 			renderSignal.value = 'server';
@@ -16,6 +16,13 @@ export default component$(() => {
 		}
 		const trackResult = track(() => stateSignal.value);
 		console.log('trackResult', trackResult);
+		cleanup(() =>
+			console.log(
+				'cleanup\n',
+				'----\n',
+				"When a new task is triggered, the previous task's cleanup() callback is invoked. (Also when the component is removed from the DOM then the cleanup() callback is also invoked.)"
+			)
+		);
 	});
 	return (
 		<div class='flex flex-col items-center'>
