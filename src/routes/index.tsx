@@ -17,7 +17,7 @@ export default component$(() => {
 				<a href='/useComputed'>useComputed$</a>
 			</div>
 			<div class='my-4'>
-				<a href='/isVisibleTask'>isVisibleTask$</a>
+				<a href='/useVisibleTask'>useVisibleTask$</a>
 			</div>
 		</div>
 	);
