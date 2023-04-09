@@ -1,5 +1,6 @@
 import { component$ } from '@builder.io/qwik';
-import { DocumentHead, routeAction$, z, zod$ } from '@builder.io/qwik-city';
+import type { DocumentHead } from '@builder.io/qwik-city';
+import { routeAction$, z, zod$ } from '@builder.io/qwik-city';
 import RouteAction from '~/components/RouteAction';
 
 export const useAddUserAction = routeAction$(
@@ -7,10 +8,7 @@ export const useAddUserAction = routeAction$(
 		// `user` is typed { name: string }
 		console.log('user', user);
 		return Math.random() > 0.5
-			? {
-					success: true,
-					user,
-			  }
+			? { success: true, user }
 			: { failed: true, message: 'Error message' };
 	},
 	zod$({
