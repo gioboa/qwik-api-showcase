@@ -22,6 +22,12 @@ export default component$(() => {
 			<div class='my-4'>
 				<a href='/server$'>server$</a>
 			</div>
+			<div class='my-4'>
+				<a href='/routeLoader'>routeLoader$</a>
+			</div>
+			<div class='my-4'>
+				<a href='/routeAction'>routeAction$</a>
+			</div>
 		</div>
 	);
 });
