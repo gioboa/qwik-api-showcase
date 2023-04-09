@@ -19,6 +19,9 @@ export default component$(() => {
 			<div class='my-4'>
 				<a href='/useVisibleTask'>useVisibleTask$</a>
 			</div>
+			<div class='my-4'>
+				<a href='/server$'>server$</a>
+			</div>
 		</div>
 	);
 });
