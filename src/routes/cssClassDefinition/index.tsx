@@ -13,7 +13,10 @@ export default component$(() => {
           "bg-green-600": randomNumberSignal.value <= 0.3,
         }}
       />
-      <button onClick$={() => (randomNumberSignal.value = Math.random())}>
+      <button
+        class="my-4 text-black"
+        onClick$={() => (randomNumberSignal.value = Math.random())}
+      >
         Change color
       </button>
     </div>
