@@ -3,10 +3,13 @@ import { server$ } from '@builder.io/qwik-city';
 
 // By wrapping a function with `server$()` we mark it to always
 // execute on the server. This is a form of RPC mechanism.
-const serverGreeter = server$((name) => {
-	const greeting = 'Hello ' + name;
-	console.log('SERVER', greeting);
-	return greeting;
+const serverGreeter = server$((name: string) => {
+	console.log('SERVER', 'Hello ' + name);
+
+	return {
+		date: new Date(),
+		foo: $(() => console.log('bar')),
+	};
 });
 
 export default component$(() => {
@@ -20,8 +23,8 @@ export default component$(() => {
 			<button
 				class='my-4 text-black'
 				onClick$={async () => {
-					const greeting = await serverGreeter(nameSignal.value);
-					alert(greeting);
+					const response = await serverGreeter(nameSignal.value);
+					response.foo();
 				}}
 			>
 				server$
